@@ -1,36 +1,110 @@
+const boxes = document.querySelectorAll(".box");
 
-const boxes = document.querySelectorAll('.box');
-const toggleBox = document.getElementById('toggleBox');
-const selectorContainer = document.querySelector('.selector-container');
+const sizeMappings = {
+  small: { width: "200px", height: "150px" },
+  medium: { width: "250px", height: "180px" },
+  large: { width: "300px", height: "210px" },
+};
 
+function handleSizeChange(event) {
+  const selectedSize = event.target.value;
+  const box = event.target.closest(".box");
+  const sizeStyle = sizeMappings[selectedSize];
 
-function resetBoxes() {
-  boxes.forEach(box => {
-    box.classList.remove('expanded');
-    selectorContainer.style.display = 'none';
-  });
+  if (box && sizeStyle) {
+    box.style.width = sizeStyle.width;
+    box.style.height = sizeStyle.height;
+    console.log("Size changed to:", selectedSize);
+  }
+
+  event.stopPropagation();
 }
 
+function handleColorChange(event) {
+  const selectedColor = event.target.value;
+  const box = event.target.closest(".box");
 
-boxes.forEach(box => {
-  box.addEventListener('click', (event) => {
-   
-    event.stopPropagation();
+  if (box) {
+    box.style.backgroundColor = selectedColor;
 
-    
-    if (!box.classList.contains('expanded')) {
-      resetBoxes(); 
-      box.classList.add('expanded');  
-      selectorContainer.style.display = 'block';   
-      
-    
+    if (selectedColor === "black") {
+      box.style.color = "white";
+    } else {
+      box.style.color = "black";
     }
-    
+    console.log("Color changed to:", selectedColor);
+  }
+
+  event.stopPropagation();
+}
+
+function toggleBox(box) {
+  const wasExpanded = box.classList.contains("expanded");
+
+  boxes.forEach((b) => {
+    b.classList.remove("expanded");
+    const container = b.querySelector(".selector-container");
+    if (container) {
+      container.style.display = "none";
+    }
   });
 
- 
+  if (!wasExpanded) {
+    box.classList.add("expanded");
+    const container = box.querySelector(".selector-container");
+    if (container) {
+      container.style.display = "block";
+    }
+  }
+}
 
+boxes.forEach((box) => {
+  box.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleBox(box);
+  });
 });
 
+document.addEventListener("click", (event) => {
+  if (
+    event.target.closest(".box") ||
+    event.target.closest("select") ||
+    event.target.tagName === "OPTION"
+  ) {
+    return;
+  }
 
-document.body.addEventListener('click', resetBoxes);
+  boxes.forEach((box) => {
+    box.classList.remove("expanded");
+    const container = box.querySelector(".selector-container");
+    if (container) {
+      container.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("select.size").forEach((select) => {
+    select.addEventListener("change", handleSizeChange);
+    select.addEventListener("click", (e) => e.stopPropagation());
+  });
+
+  document.querySelectorAll("select.color").forEach((select) => {
+    select.addEventListener("change", handleColorChange);
+    select.addEventListener("click", (e) => e.stopPropagation());
+  });
+
+  const selectorContainers = document.querySelectorAll(".selector-container");
+  selectorContainers.forEach((container) => {
+    container.style.display = "none";
+  });
+
+  document
+    .querySelectoAll('input[type="radio"][name="boxSelect"]')
+    .forEach((radio) => {
+      radio.addEventListener("change", function () {
+        const box = this.closest(".box");
+        toggleBox(box);
+      });
+    });
+});
