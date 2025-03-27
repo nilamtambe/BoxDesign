@@ -1,28 +1,3 @@
-// const boxes = document.querySelectorAll(".box");
-// const toggleBox = document.getElementById("toggleBox");
-// const selectorContainers = document.querySelectorAll(".selector-container");
-
-// function resetBoxes() {
-//   boxes.forEach((box) => {
-//     box.classList.remove("expanded");
-
-//   });
-// }
-
-// boxes.forEach((box) => {
-//   box.addEventListener("click", (event) => {
-//     event.stopPropagation();
-
-//     if (!box.classList.contains("expanded")) {
-//       resetBoxes();
-//       box.classList.add("expanded");
-
-//     }
-
-//   });
-// });
-
-// document.body.addEventListener("click", resetBoxes);
 
 const boxes = document.querySelectorAll(".box");
 
