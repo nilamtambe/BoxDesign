@@ -1,0 +1,263 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+ 
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+    
+  display: grid;
+  color: #26b150;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  height: 30px;
+  align-items: center;
+}
+.title::before,
+.title::after {
+  content: "";
+  height: 2px;
+  background-color: #26b150;
+  display: block;
+}
+
+.boxes {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 100px;
+  flex-direction: column;
+  
+  
+}
+.box {
+  height: 100px;
+  width: 300px;
+  border: 2px solid #26b150;
+  margin: 20px;
+  border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.box.expanded {
+  height: 200px;
+  width: 350px;
+  border: 2px solid #26b150 ;
+  margin: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+   background-color: #c7f7d5;
+}
+.content{
+  display:flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+ 
+} 
+.content p {
+  margin-top: -80px;
+    margin-left: 58px;
+}
+
+.selector-container {
+  max-width: 300px;
+  padding: 20px;
+  margin-top: -85px;
+  margin-left: 30px;
+ 
+
+
+}
+
+label {
+  margin-top: 10px;
+}
+
+select {
+  padding: 1px;
+  width: 60px;
+  border-radius: 8px;
+  background-color: #c7f7d5;
+  
+ 
+}
+
+.select-container {
+  margin-top: -75px;
+}
+.label-container {
+  margin-top: -10px; 
+
+  
+}
+.para-container{
+display: flex;
+flex-direction: row;
+align-items: flex-end;
+justify-content: space-between;
+margin-top: 50px;
+    
+}
+.para-container span{
+  color: #58bda4;
+ 
+}
+.btn {
+  width: 100%; 
+  padding: 15px; 
+  background-color: #26b150; 
+  color: white; 
+  font-size: 16px; 
+  border: none; 
+  border-radius: 8px;
+  transition: background-color 0.3s ease;  
+} */
+
+/* .select-container {
+  display: none; 
+  
+}
+.label-container {
+  display: none; 
+}
+.selector-container {
+  display: none; 
+}
+ .box.expanded .select-container .label-container .selector-container{
+  display: block;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: grid;
+  color: #26b150;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  height: 30px;
+  align-items: center;
+}
+.title::before,
+.title::after {
+  content: "";
+  height: 2px;
+  background-color: #26b150;
+  display: block;
+}
+
+.boxes {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 100px;
+  flex-direction: column;
+}
+.box {
+  height: 130px;
+  width: 350px;
+  border: 2px solid #26b150;
+  margin: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.box.expanded {
+  height: 200px;
+  width: 350px;
+  border: 2px solid #26b150;
+  margin: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #c7f7d5;
+}
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+.content p {
+  margin-top: -80px;
+  margin-left: 58px;
+}
+
+.selector-container {
+  max-width: 300px;
+  padding: 20px;
+  margin-top: -85px;
+  margin-left: 30px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+select {
+  padding: 1px;
+  width: 60px;
+  border-radius: 8px;
+}
+
+.select-container {
+  margin-top: -75px;
+}
+.label-container {
+  margin-top: -10px;
+}
+.para-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.para-container span {
+  color: #58bda4;
+}
+.btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #26b150;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+/* .select-container {
+  display: none; 
+  
+}
+.label-container {
+  display: none; 
+}
+.selector-container {
+  display: none; 
+} */
